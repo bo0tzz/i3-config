@@ -1,0 +1,14 @@
+#!/bin/bash
+
+FILENAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 8)
+
+URL="http://i.bo0tzz.me/"$FILENAME.png
+FILENAME=~/Pictures/Screenshots/$FILENAME.png
+
+maim -s $FILENAME
+
+scp $FILENAME vps:~/web/img/
+
+echo $URL | xclip -selection c
+
+notify-send "URL copied to clipboard"
