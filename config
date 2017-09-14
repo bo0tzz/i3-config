@@ -156,6 +156,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id pasystray &
 exec xautolock -time 10 -locker '/usr/local/bin/lock' &
 exec --no-startup-id nm-applet &
+exec --no-startup-id sleep 3 && xfce4-power-manager 
 
 hide_edge_borders smart
 
