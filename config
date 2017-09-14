@@ -157,6 +157,8 @@ exec --no-startup-id pasystray &
 exec xautolock -time 10 -locker '/usr/local/bin/lock' &
 exec --no-startup-id nm-applet &
 exec --no-startup-id sleep 3 && xfce4-power-manager 
+exec --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop 12 "libinput Scroll Method Enabled" 0, 1, 0
 
 hide_edge_borders smart
 
@@ -168,10 +170,10 @@ bindsym --release Print exec /home/boet/.config/i3/scripts/screenshot
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id /usr/local/bin/lock, mode "default"
+    bindsym l exec --no-startup-id lock, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id lock && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id lock && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym p exec --no-startup-id systemctl poweroff, mode "default"
 
