@@ -155,6 +155,7 @@ bindsym $mod+r mode "resize"
 #exec_always --no-startup-id /home/boet/.config/i3/scripts/forcecomppl
 exec --no-startup-id pasystray &
 exec xautolock -time 10 -locker '/usr/local/bin/lock' &
+exec --no-startup-id nm-applet &
 
 hide_edge_borders smart
 
