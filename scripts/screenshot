@@ -7,8 +7,8 @@ FILENAME=~/Pictures/Screenshots/$FILENAME.png
 
 maim -s $FILENAME
 
-scp $FILENAME vps:~/web/img/
+scp $FILENAME nginx:~/docker/nginx/web/img/
 
-echo $URL | xclip -selection c
+echo $URL | tr -d '\n' | xclip -selection c
 
 notify-send "URL copied to clipboard"

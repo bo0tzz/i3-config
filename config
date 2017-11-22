@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+t exec terminology
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -155,20 +155,28 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id /home/boet/.config/i3/scripts/forcecomppl
 exec --no-startup-id pasystray &
 exec xautolock -time 10 -locker '/usr/local/bin/lock' &
+exec caffeine &
+exec --no-startup-id redshift-gtk &
 
-hide_edge_borders smart
+hide_edge_borders both
+new_window none
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+
 bindsym Mod4+e exec --no-startup-id nautilus
 bindsym --release Print exec /home/boet/.config/i3/scripts/screenshot
+bindsym $mod+g exec google-chrome-stable
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id /usr/local/bin/lock, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym s exec --no-startup-id /usr/local/bin/lock & systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym p exec --no-startup-id systemctl poweroff, mode "default"
