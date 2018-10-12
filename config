@@ -154,8 +154,8 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id /home/boet/.config/i3/scripts/forcecomppl
 exec --no-startup-id pasystray &
-exec xautolock -time 10 -locker '/usr/local/bin/lock' &
-exec caffeine &
+exec --no-startup-id xautolock -time 9 -locker '/usr/local/bin/lock' &
+exec --no-startup-id caffeine &
 exec --no-startup-id redshift-gtk &
 
 hide_edge_borders both
@@ -212,3 +212,10 @@ bar {
                 urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
         }
 }
+
+exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/boet/.config/i3/layout/workspace-2.json'"
+#exec --no-startup-id teamspeak3 &
+exec --no-startup-id spotify &
+exec --no-startup-id google-chrome-stable &
+#exec --no-startup-id discord &
+exec --no-startup-id telegram-desktop &
