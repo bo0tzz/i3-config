@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 DIR="${BLOCK_INSTANCE:-$HOME}"
 ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
 
