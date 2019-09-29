@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+t exec terminology
+bindsym $mod+Shift+t exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -152,11 +152,11 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-exec_always --no-startup-id /home/boet/.config/i3/scripts/forcecomppl
-exec --no-startup-id pasystray &
-exec --no-startup-id xautolock -time 9 -locker '/usr/local/bin/lock' &
-exec --no-startup-id caffeine &
-exec --no-startup-id redshift-gtk &
+#exec_always --no-startup-id /home/boet/.config/i3/scripts/forcecomppl
+#exec --no-startup-id pasystray &
+#exec --no-startup-id xautolock -time 9 -locker '/usr/local/bin/lock' &
+#exec --no-startup-id caffeine &
+#exec --no-startup-id redshift-gtk &
 
 hide_edge_borders both
 new_window none
@@ -168,15 +168,15 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
-bindsym Mod4+e exec --no-startup-id nautilus
-bindsym --release Print exec /home/boet/.config/i3/scripts/screenshot
-bindsym $mod+g exec google-chrome-stable
+#bindsym Mod4+e exec --no-startup-id nautilus
+bindsym --release Print exec /home/boet/.i3/scripts/screenshot
+bindsym $mod+g exec chromium
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id /usr/local/bin/lock, mode "default"
+#    bindsym l exec --no-startup-id /usr/local/bin/lock, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id /usr/local/bin/lock & systemctl suspend, mode "default"
+#    bindsym s exec --no-startup-id /usr/local/bin/lock & systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym p exec --no-startup-id systemctl poweroff, mode "default"
@@ -202,7 +202,7 @@ bar {
 
 	tray_output primary
 
-        status_command i3blocks -c /home/boet/.config/i3/i3blocks.conf
+        status_command i3blocks -c /home/boet/.i3/i3blocks.conf
         colors {
                 background $bg-color
                 separator #757575
@@ -213,9 +213,9 @@ bar {
         }
 }
 
-exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/boet/.config/i3/layout/workspace-2.json'"
+#exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/boet/.config/i3/layout/workspace-2.json'"
 #exec --no-startup-id teamspeak3 &
-exec --no-startup-id spotify &
-exec --no-startup-id google-chrome-stable &
+#exec --no-startup-id spotify &
+#exec --no-startup-id google-chrome-stable &
 #exec --no-startup-id discord &
-exec --no-startup-id telegram-desktop &
+#exec --no-startup-id telegram-desktop &
