@@ -2,12 +2,12 @@
 
 FILENAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 8)
 
-URL="http://i.bo0tzz.me/"$FILENAME.png
-FILENAME=~/Pictures/Screenshots/$FILENAME.png
+URL="http://i.bo0tzz.me/$FILENAME.png"
+FILENAME="/home/boet/Pictures/Screenshots/$FILENAME.png"
 
-maim -s $FILENAME
+scrot -sm $FILENAME
 
-scp $FILENAME vps:~/web/img/
+scp $FILENAME unraid:/mnt/user/appdata/bo0tzz.me/web/img/
 
 echo $URL | xclip -selection c
 

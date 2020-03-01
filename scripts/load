@@ -8,7 +8,7 @@ echo "$load"
 
 # short text
 echo "$load"
-
+echo ""
 # color if load is too high
 awk -v cpus=$cpus -v cpuload=$load '
     BEGIN {

@@ -154,13 +154,15 @@ bindsym $mod+r mode "resize"
 
 #exec_always --no-startup-id /home/boet/.config/i3/scripts/forcecomppl
 exec --no-startup-id pasystray &
-exec xautolock -time 10 -locker '/usr/local/bin/lock' &
+exec --no-startup-id xautolock -time 10 -locker '/usr/local/bin/lock' &
 exec --no-startup-id nm-applet &
 exec --no-startup-id sleep 3 && xfce4-power-manager 
-exec_always --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1
-exec_always --no-startup-id xinput set-prop 12 "libinput Scroll Method Enabled" 0, 1, 0
+exec_always --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1
+exec_always --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id bluetooth off
 
-hide_edge_borders smart
+hide_edge_borders both
+new_window none
 
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
@@ -176,10 +178,10 @@ bindsym --release Mod4+l exec --no-startup-id xdotool key --clearmodifiers Up
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id lock && sleep 3 && xset dpms force off, mode "default"
+    bindsym l exec --no-startup-id lock --'maim' & xset dkms force off, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id lock && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id lock && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id lock & systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id lock & systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym p exec --no-startup-id systemctl poweroff, mode "default"
 
