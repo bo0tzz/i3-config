@@ -202,7 +202,7 @@ bar {
 
 	tray_output primary
 
-        status_command i3blocks -c /home/boet/.i3/i3blocks.conf
+        status_command i3blocks -c /home/boet/.config/i3/i3blocks.conf
         colors {
                 background $bg-color
                 separator #757575
@@ -219,3 +219,6 @@ bar {
 #exec --no-startup-id google-chrome-stable &
 #exec --no-startup-id discord &
 #exec --no-startup-id telegram-desktop &
+exec --no-startup-id xsetroot -solid "#000000"
+exec --no-startup-id xinput set-prop 11 277 1
+exec --no-startup-id xinput set-prop 11 269 1
