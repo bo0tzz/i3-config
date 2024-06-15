@@ -220,8 +220,8 @@ bar {
 #exec --no-startup-id teamspeak3 &
 #exec --no-startup-id spotify &
 #exec --no-startup-id google-chrome-stable &
-#exec --no-startup-id discord &
-#exec --no-startup-id telegram-desktop &
+exec --no-startup-id discord &
+exec --no-startup-id telegram-desktop &
 exec --no-startup-id xsetroot -solid "#000000"
 exec --no-startup-id xinput set-prop 11 277 1
 exec --no-startup-id xinput set-prop 11 269 1
