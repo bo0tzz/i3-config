@@ -5,7 +5,7 @@
 display_duration=7.0
 
 # Maximum number of characters:
-char_limit=150
+char_limit=100
 
 # Replace app names with nerd font logos
 use_nerd_font="true"
