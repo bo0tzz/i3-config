@@ -196,25 +196,7 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-bar {
-        #status_command i3status
-
-#	mode hide
-	hidden_state hide
-	modifier Mod1
-
-	tray_output primary
-
-        status_command i3blocks -c /home/boet/.config/i3/i3blocks.conf
-        colors {
-                background $bg-color
-                separator #757575
-                #                  border             background         text
-                focused_workspace  $bg-color          $bg-color          $text-color
-                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-        }
-}
+exec_always --no-startup-id killall -q polybar && polybar -c ~/.config/i3/polybar.ini 
 
 #exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/boet/.config/i3/layout/workspace-2.json'"
 #exec --no-startup-id teamspeak3 &
@@ -223,7 +205,10 @@ bar {
 exec --no-startup-id discord &
 exec --no-startup-id telegram-desktop &
 exec --no-startup-id xsetroot -solid "#000000"
-exec --no-startup-id xinput set-prop 11 277 1
-exec --no-startup-id xinput set-prop 11 269 1
+#exec --no-startup-id xinput set-prop 11 277 1
+#exec --no-startup-id xinput set-prop 11 269 1
+
+exec --no-startup-id xinput set-prop 9 "libinput Scroll Method Enabled" 0, 0, 1
 
 bindsym --whole-window button9 exec xdotool key ctrl+w
+
