@@ -172,7 +172,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
 #bindsym Mod4+e exec --no-startup-id nautilus
-#bindsym --release Print exec /home/boet/.i3/scripts/screenshot
+bindsym --release Print exec $HOME/.config/i3/scripts/zipline.sh
 bindsym $mod+g exec firefox
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
