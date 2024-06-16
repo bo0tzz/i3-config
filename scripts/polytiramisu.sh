@@ -15,19 +15,14 @@ use_nerd_font="true"
 pgrep -x tiramisu >/dev/null && killall tiramisu
 
 # Start a new tiramisu process:
-tiramisu -o '#summary #body' |
-    while read -r line; do
+tiramisu -j |
+    while read -r json; do
         
-        # Replace app names with icons
-        if [ $use_nerd_font == "true" ]; then
-            line="$(echo "$line" | sed -r 's/Telegram Desktop//')"
-            line="$(echo "$line" | sed -r 's/NordVPN//')"
-            line="$(echo "$line" | sed -r 's/VLC//')"
-            line="$(echo "$line" | sed -r 's/Kdenlive//')"
-            line="$(echo "$line" | sed -r 's/Wifi//')"
-            line="$(echo "$line" | sed -r 's/Firefox//')"
-        fi
+	summary=$(echo $json | jq -r '.summary')
+        body=$(echo $json | jq -r '.body')
 
+	line="$summary: $body"
+	line=${line//$'\n'/\\n}	
         # Cut notification by character limit:
         if [ "${#line}" -gt "$char_limit" ]; then
             line="$(echo "$line" | cut -c1-$((char_limit-1)))…"
