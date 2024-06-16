@@ -197,7 +197,9 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 exec_always --no-startup-id $HOME/.config/i3/scripts/launch-polybar.sh
- 
+exec_always --no-startup-id $HOME/.config/i3/scripts/vol.sh listen 
+exec_always --no-startup-id xbindkeys -fg $HOME/.config/i3/xbindkeys.scm
+
 #exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/boet/.config/i3/layout/workspace-2.json'"
 #exec --no-startup-id teamspeak3 &
 #exec --no-startup-id spotify &
@@ -211,4 +213,5 @@ exec --no-startup-id xsetroot -solid "#000000"
 exec --no-startup-id xinput set-prop 9 "libinput Scroll Method Enabled" 0, 0, 1
 
 bindsym --whole-window button9 exec xdotool key ctrl+w
+#bindsym --whole-window --border $mod+button4 exec notify-send "scroll!"
 
