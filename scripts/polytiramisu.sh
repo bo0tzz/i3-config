@@ -18,8 +18,8 @@ pgrep -x tiramisu >/dev/null && killall tiramisu
 tiramisu -j |
     while read -r json; do
         
-	summary=$(echo $json | jq -r '.summary')
-        body=$(echo $json | jq -r '.body')
+	summary=$(echo "$json" | jq -r '.summary')
+        body=$(echo "$json" | jq -r '.body')
 
 	line="$summary: $body"
 	line=${line//$'\n'/\\n}	
