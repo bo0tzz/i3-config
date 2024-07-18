@@ -2,14 +2,10 @@
 # Show tiramisu notifications in polybar.
 
 # How many seconds notification is displayed:
-display_duration=7.0
+display_duration=3.0
 
 # Maximum number of characters:
 char_limit=100
-
-# Replace app names with nerd font logos
-use_nerd_font="true"
-
 
 # Stop old tiramisu processes if any:
 pgrep -x tiramisu >/dev/null && killall tiramisu
