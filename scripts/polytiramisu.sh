@@ -5,7 +5,7 @@
 display_duration=3.0
 
 # Maximum number of characters:
-char_limit=100
+char_limit=190
 
 # Stop old tiramisu processes if any:
 pgrep -x tiramisu >/dev/null && killall tiramisu
@@ -18,7 +18,7 @@ tiramisu -j |
         body=$(echo "$json" | jq -r '.body')
 
 	line="$summary: $body"
-	line=${line//$'\n'/\\n}	
+	line=${line//$'\n'/ }	
         # Cut notification by character limit:
         if [ "${#line}" -gt "$char_limit" ]; then
             line="$(echo "$line" | cut -c1-$((char_limit-1)))…"
