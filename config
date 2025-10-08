@@ -164,7 +164,7 @@ bindsym $mod+r mode "resize"
 hide_edge_borders both
 new_window none
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -198,11 +198,13 @@ set $urgent-bg-color     #E53935
 
 exec_always --no-startup-id $HOME/.config/i3/scripts/launch-polybar.sh
 exec --no-startup-id /opt/activitywatch/start.sh
+exec --no-startup-id lxpolkit &
 
 exec --no-startup-id discord &
-exec --no-startup-id telegram-desktop &
+exec --no-startup-id Telegram &
 exec --no-startup-id xsetroot -solid "#000000"
 
 exec --no-startup-id xinput set-prop "Logitech ERGO M575" "libinput Scroll Method Enabled" 0 0 1
 bindsym --whole-window button9 exec xdotool key ctrl+w
 
+bindsym $mod+b exec com.sidevesh.Luminance
